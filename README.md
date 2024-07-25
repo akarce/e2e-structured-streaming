@@ -1,5 +1,5 @@
 
-**This repository demonstrates a data engineering pipeline using Spark Structured Streaming. It retrieves random names from an API, sends the data to Kafka topics every 1 seconds via Airflow, and processes it with Spark Structured Streaming before storing it in Cassandra.**
+**This repository demonstrates a data engineering pipeline using Spark Structured Streaming. It retrieves random names from an API, sends the data to Kafka topics via Airflow, and processes it with Spark Structured Streaming before storing it in Cassandra.**
 
 # System Architecture
 
@@ -26,7 +26,7 @@ Data processing with Apache Spark. \
 Storage solutions with Cassandra and PostgreSQL. \
 Containerization of the entire setup using Docker. \
 **Technologies:** \
-Apache Airflow, Python, Apache Kafka, Apache Zookeeper, Apache Spark, Cassandra, PostgreSQL, Docker \
+Apache Airflow, Python, Apache Kafka, Apache Zookeeper, Apache Spark, Cassandra, PostgreSQL, Docker 
 
 ## Getting Started
 
@@ -34,7 +34,7 @@ Apache Airflow, Python, Apache Kafka, Apache Zookeeper, Apache Spark, Cassandra,
 
 `Airflow`  : <http://localhost:8080/> \
 `Kafka UI` : <http://localhost:8085/> \
-`Spark UI:`: <http://localhost:9090/> \
+`Spark UI:`: <http://localhost:9090/> 
 
 ### Clone the repository:
 
