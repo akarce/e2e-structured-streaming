@@ -7,34 +7,34 @@
 
 ## Components:
 
-**Data Source:** Uses the randomuser.me API for generating user data.
-**Apache Airflow:** Orchestrates the pipeline and schedules data ingestion.
-**Apache Kafka & Zookeeper:** Stream data from PostgreSQL to Spark.
-**Apache Spark:** Processes data in real time.
-**Cassandra:** Stores the processed data.
+**Data Source:** Uses the randomuser.me API for generating user data. \
+**Apache Airflow:** Orchestrates the pipeline and schedules data ingestion. \
+**Apache Kafka & Zookeeper:** Stream data from PostgreSQL to Spark. \
+**Apache Spark:** Processes data in real time. \
+**Cassandra:** Stores the processed data. \
 **Scripts:**
 
-**kafka_stream.py:** Airflow DAG script that pushes API data to Kafka during 2 minutes every 1 seconds.
-**spark_stream.py:** Consumes and processes data from Kafka using Spark Structured Streaming.
+**kafka_stream.py:** Airflow DAG script that pushes API data to Kafka during 2 minutes every 1 seconds. \
+**spark_stream.py:** Consumes and processes data from Kafka using Spark Structured Streaming. \
 
 ## What You'll Learn:
 
-Setting up and orchestrating pipelines with Apache Airflow.
-Real-time data streaming with Apache Kafka.
-Synchronization with Apache Zookeeper.
-Data processing with Apache Spark.
-Storage solutions with Cassandra and PostgreSQL.
-Containerization of the entire setup using Docker.
-**Technologies:**
-Apache Airflow, Python, Apache Kafka, Apache Zookeeper, Apache Spark, Cassandra, PostgreSQL, Docker
+Setting up and orchestrating pipelines with Apache Airflow. \
+Real-time data streaming with Apache Kafka. \
+Synchronization with Apache Zookeeper. \
+Data processing with Apache Spark. \
+Storage solutions with Cassandra and PostgreSQL. \
+Containerization of the entire setup using Docker. \
+**Technologies:** \
+Apache Airflow, Python, Apache Kafka, Apache Zookeeper, Apache Spark, Cassandra, PostgreSQL, Docker \
 
 ## Getting Started
 
 ### WebUI links
 
-`<Airflow>`  : <http://localhost:8080/>
-`<Kafka UI>` : <http://localhost:8085/>
-`<Spark UI:>`: <http://localhost:9090/>
+`Airflow`  : <http://localhost:8080/> \
+`Kafka UI` : <http://localhost:8085/> \
+`Spark UI:`: <http://localhost:9090/> \
 
 ### Clone the repository:
 
