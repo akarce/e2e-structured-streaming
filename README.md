@@ -15,7 +15,7 @@
 **Scripts:**
 
 **kafka_stream.py:** Airflow DAG script that pushes API data to Kafka during 2 minutes every 1 seconds. \
-**spark_stream.py:** Consumes and processes data from Kafka using Spark Structured Streaming. \
+**spark_stream.py:** Consumes and processes data from Kafka using Spark Structured Streaming. 
 
 ## What You'll Learn:
 
