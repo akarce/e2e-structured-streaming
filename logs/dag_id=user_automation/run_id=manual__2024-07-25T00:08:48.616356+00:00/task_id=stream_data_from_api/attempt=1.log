@@ -1,0 +1,52 @@
+[2024-07-25T00:08:49.158+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-25T00:08:49.204+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: user_automation.stream_data_from_api manual__2024-07-25T00:08:48.616356+00:00 [queued]>
+[2024-07-25T00:08:49.216+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: user_automation.stream_data_from_api manual__2024-07-25T00:08:48.616356+00:00 [queued]>
+[2024-07-25T00:08:49.216+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-07-25T00:08:49.235+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): stream_data_from_api> on 2024-07-25 00:08:48.616356+00:00
+[2024-07-25T00:08:49.243+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'user_automation', 'stream_data_from_api', 'manual__2024-07-25T00:08:48.616356+00:00', '--job-id', '10', '--raw', '--subdir', 'DAGS_FOLDER/kafka_stream.py', '--cfg-path', '/tmp/tmpnrntkijz']
+[2024-07-25T00:08:49.245+0000] {standard_task_runner.py:91} INFO - Job 10: Subtask stream_data_from_api
+[2024-07-25T00:08:49.247+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=474) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-07-25T00:08:49.247+0000] {standard_task_runner.py:64} INFO - Started process 475 to run task
+[2024-07-25T00:08:49.299+0000] {task_command.py:426} INFO - Running <TaskInstance: user_automation.stream_data_from_api manual__2024-07-25T00:08:48.616356+00:00 [running]> on host 45872c274362
+[2024-07-25T00:08:49.417+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='user_automation' AIRFLOW_CTX_TASK_ID='stream_data_from_api' AIRFLOW_CTX_EXECUTION_DATE='2024-07-25T00:08:48.616356+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-25T00:08:48.616356+00:00'
+[2024-07-25T00:08:49.418+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-25T00:08:49.585+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.8', 9092)]>: connecting to broker:9092 [('172.18.0.8', 9092) IPv4]
+[2024-07-25T00:08:49.586+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-07-25T00:08:49.587+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.8', 9092)]>: Connection complete.
+[2024-07-25T00:08:49.694+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-07-25T00:08:49.694+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-07-25T00:08:50.333+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.8', 9092)]>: connecting to broker:9092 [('172.18.0.8', 9092) IPv4]
+[2024-07-25T00:08:50.334+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.8', 9092)]>: Connection complete.
+[2024-07-25T00:08:50.334+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.8', 9092)]>: Closing connection. 
+[2024-07-25T00:10:06.830+0000] {local_task_job_runner.py:124} ERROR - Received SIGTERM. Terminating subprocesses
+[2024-07-25T00:10:06.894+0000] {process_utils.py:132} INFO - Sending 15 to group 475. PIDs of all processes in the group: [475]
+[2024-07-25T00:10:06.895+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 475
+[2024-07-25T00:10:06.896+0000] {taskinstance.py:2611} ERROR - Received SIGTERM. Terminating subprocesses.
+[2024-07-25T00:10:06.898+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-25T00:10:06.938+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/kafka_stream.py", line 56, in stream_data
+    time.sleep(sleep_duration)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2613, in signal_handler
+    raise AirflowTaskTerminated("Task received SIGTERM signal")
+airflow.exceptions.AirflowTaskTerminated: Task received SIGTERM signal
+[2024-07-25T00:10:06.956+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=user_automation, task_id=stream_data_from_api, run_id=manual__2024-07-25T00:08:48.616356+00:00, execution_date=20240725T000848, start_date=20240725T000849, end_date=20240725T001006
+[2024-07-25T00:10:07.040+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=475, status='terminated', exitcode=2, started='00:08:48') (475) terminated with exit code 2
+[2024-07-25T00:10:07.045+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 143
+[2024-07-25T00:10:07.093+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-07-25T00:10:10.017+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,8 @@
+cassandra-driver==3.29.1
+click==8.1.7
+geomet==0.2.1.post1
+kafka-python-ng==2.2.2
+py4j==0.10.9.7
+setuptools==71.1.0
+six==1.16.0
+wheel==0.43.0

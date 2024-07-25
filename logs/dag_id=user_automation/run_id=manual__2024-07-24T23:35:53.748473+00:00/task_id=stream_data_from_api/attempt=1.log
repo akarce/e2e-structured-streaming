@@ -1,0 +1,27 @@
+[2024-07-24T23:35:54.315+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-07-24T23:35:54.357+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: user_automation.stream_data_from_api manual__2024-07-24T23:35:53.748473+00:00 [queued]>
+[2024-07-24T23:35:54.369+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: user_automation.stream_data_from_api manual__2024-07-24T23:35:53.748473+00:00 [queued]>
+[2024-07-24T23:35:54.370+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2024-07-24T23:35:54.391+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): stream_data_from_api> on 2024-07-24 23:35:53.748473+00:00
+[2024-07-24T23:35:54.399+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'user_automation', 'stream_data_from_api', 'manual__2024-07-24T23:35:53.748473+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/kafka_stream.py', '--cfg-path', '/tmp/tmpl9snxanz']
+[2024-07-24T23:35:54.401+0000] {standard_task_runner.py:91} INFO - Job 6: Subtask stream_data_from_api
+[2024-07-24T23:35:54.402+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=848) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-07-24T23:35:54.403+0000] {standard_task_runner.py:64} INFO - Started process 849 to run task
+[2024-07-24T23:35:54.463+0000] {task_command.py:426} INFO - Running <TaskInstance: user_automation.stream_data_from_api manual__2024-07-24T23:35:53.748473+00:00 [running]> on host 716dd9ab7ec4
+[2024-07-24T23:35:54.575+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='user_automation' AIRFLOW_CTX_TASK_ID='stream_data_from_api' AIRFLOW_CTX_EXECUTION_DATE='2024-07-24T23:35:53.748473+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-07-24T23:35:53.748473+00:00'
+[2024-07-24T23:35:54.576+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-07-24T23:35:54.715+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.8', 9092)]>: connecting to broker:9092 [('172.18.0.8', 9092) IPv4]
+[2024-07-24T23:35:54.715+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-07-24T23:35:54.717+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connecting> [IPv4 ('172.18.0.8', 9092)]>: Connection complete.
+[2024-07-24T23:35:54.820+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-07-24T23:35:54.820+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-07-24T23:35:55.113+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.8', 9092)]>: connecting to broker:9092 [('172.18.0.8', 9092) IPv4]
+[2024-07-24T23:35:55.113+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:9092 <connecting> [IPv4 ('172.18.0.8', 9092)]>: Connection complete.
+[2024-07-24T23:35:55.114+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-0 host=broker:9092 <connected> [IPv4 ('172.18.0.8', 9092)]>: Closing connection. 
+[2024-07-24T23:37:56.399+0000] {conn.py:673} INFO - <BrokerConnection node_id=1 host=broker:9092 <connected> [IPv4 ('172.18.0.8', 9092)]>: Closing connection. 
+[2024-07-24T23:37:56.400+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-07-24T23:37:56.401+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-07-24T23:37:56.412+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=user_automation, task_id=stream_data_from_api, run_id=manual__2024-07-24T23:35:53.748473+00:00, execution_date=20240724T233553, start_date=20240724T233554, end_date=20240724T233756
+[2024-07-24T23:37:56.452+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2024-07-24T23:37:56.477+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-07-24T23:37:56.484+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
