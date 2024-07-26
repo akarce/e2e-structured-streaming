@@ -34,7 +34,6 @@ Apache Airflow, Python, Apache Kafka, Apache Zookeeper, Apache Spark, Cassandra,
 
 `Airflow`  : <http://localhost:8080/> \
 `Kafka UI` : <http://localhost:8085/> \
-`Spark UI:`: <http://localhost:9090/> 
 
 ### Clone the repository:
 
@@ -57,9 +56,6 @@ Apache Airflow, Python, Apache Kafka, Apache Zookeeper, Apache Spark, Cassandra,
 
 ![alt text](img/airflow-init.png)
 
-### Change the permissions of the entrypoint.sh file
-
-`$ chmod +x script/entrypoint.sh`
 
 ### Run Docker Compose again to spin up the services:
 
@@ -86,14 +82,6 @@ Apache Airflow, Python, Apache Kafka, Apache Zookeeper, Apache Spark, Cassandra,
 
 ![cqlsh no keyspace](img/cqlsh_no_keyspace.png)
 
-### In a new terminal run the docker exec command to run spark job to read the streaming from kafka topic:
-
-`$ docker exec -it spark-master spark-submit \
-    --packages com.datastax.spark:spark-cassandra-connector_2.12:3.5.1,org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.1 \
-    --py-files /dependencies.zip \
-    /spark_stream.py`
-
-
 ### Unpause the dag user_automation using Airflow UI
 
 **Go to Airflow UI using :** <http://localhost:8080/>
@@ -101,6 +89,19 @@ Apache Airflow, Python, Apache Kafka, Apache Zookeeper, Apache Spark, Cassandra,
 **Login using** Username: `admin` Password: `admin`
 
 ![unpause the user_automation](img/unpause_user_automation.png)
+
+**You can track the topic creation and message queue using the open source tool named UI for Apache Kafka that is running as a container, WebUI link:**  <http://localhost:8085/>
+
+![alt text](img/kafkaui.png)
+
+**Message schema looks like this**
+
+![alt text](img/kafkaui-message.png)
+
+### In a new terminal run the docker exec command to run spark job to read the streaming from kafka topic:
+
+`$ docker exec -it spark-master spark-submit     --packages com.datastax.spark:spark-cassandra-connector_2.12:3.5.1,org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.1     --py-files /dependencies.zip     /spark_stream.py`
+
 
 ### Now go back to the cqlsh shell terminal back and run the command to see data is inserted to cassandra table called created_users
 
