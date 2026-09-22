@@ -1,4 +1,8 @@
 
+# e2e-structured-streaming
+
+[![Read the write-up on Towards Data Engineering](https://img.shields.io/badge/Medium-Towards%20Data%20Engineering-black?logo=medium)](https://medium.com/towards-data-engineering/end-to-end-realtime-streaming-data-engineering-project-using-python-docker-airflow-spark-kafka-ab1568c2ad13)
+
 **This repository demonstrates a data engineering pipeline using Spark Structured Streaming. It retrieves random names from an API, sends the data to Kafka topics via Airflow, and processes it with Spark Structured Streaming before storing it in Cassandra.**
 
 # System Architecture
@@ -9,7 +13,7 @@
 
 **Data Source:** Uses the randomuser.me API for generating user data. \
 **Apache Airflow:** Orchestrates the pipeline and schedules data ingestion. \
-**Apache Kafka & Zookeeper:** Stream data from PostgreSQL to Spark. \
+**Apache Kafka & Zookeeper:** Carry the user records from the Airflow task to Spark. \
 **Apache Spark:** Processes data in real time. \
 **Cassandra:** Stores the processed data. \
 **Scripts:**
@@ -23,7 +27,7 @@ Setting up and orchestrating pipelines with Apache Airflow. \
 Real-time data streaming with Apache Kafka. \
 Synchronization with Apache Zookeeper. \
 Data processing with Apache Spark. \
-Storage solutions with Cassandra and PostgreSQL. \
+Storage with Cassandra (PostgreSQL only holds Airflow's metadata). \
 Containerization of the entire setup using Docker. \
 **Technologies:** \
 Apache Airflow, Python, Apache Kafka, Apache Zookeeper, Apache Spark, Cassandra, PostgreSQL, Docker 
@@ -114,3 +118,16 @@ Apache Airflow, Python, Apache Kafka, Apache Zookeeper, Apache Spark, Cassandra,
 `cqlsh> SELECT count(*) FROM spark_streaming.created_users;`
 
 ![alt text](img/count-created-users.png)
+
+## What I'd change for production
+
+I built this in 2024 to learn the tools end to end. Before it ran for real I'd change:
+
+- **Move the producer out of Airflow.** `kafka_stream.py` loops for two minutes inside a daily DAG task, which ties up a worker. A small producer service, or a DAG that lands batches, fits better.
+- **Make the producer safe to retry:** `acks=all`, idempotence on, and messages keyed by user id.
+- **Put a schema on the topic** (Avro or JSON Schema in a schema registry) instead of plain JSON.
+- **Keep the Spark checkpoint on durable storage.** `/tmp/checkpoint` inside the container disappears when it restarts.
+- **Choose a Cassandra key that can't collide.** With `username` alone as the primary key, two different generated users can overwrite each other.
+- **Package and submit the Spark job** instead of copying files into the container, and watch consumer lag and batch duration.
+
+More projects and write-ups: [akarce.github.io](https://akarce.github.io)
